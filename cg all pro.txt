@@ -1,0 +1,729 @@
+Read and Display Image:
+function digital
+fprintf('Read and Display the image\n');
+while(true)
+    fprintf('1.Read the Image\n');
+    fprintf('2.Display the image\n');
+    fprintf('3.Exit\n');
+    option=input('Enter Your Choice:\n');
+    switch(option)
+        case 1
+            [filename pathname]=uigetfile('*.jpeg,*.png,Choose any file');
+            if path~=0
+                img=[pathname filename];
+                img1=imread(img);
+            end
+        case 2
+            imshow(img1);
+            title('Original');
+        case 3
+            disp('exit');
+            break;
+        otherwise;
+            disp('Thankyou');
+    end
+end
+return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Arithmetic Operation	
+function arithmetic
+close all
+clear all
+fprintf('\t Arithmetic Operation\n');
+fprintf('\t 1.Addition\n');
+fprintf('\t 2.Substraction\n');
+fprintf('\t 3.Multiplication\n');
+fprintf('\t 4.Division\n');
+fprintf('\t 5.Exit\n');
+while(true)
+            a1=imread('C:\Users\Public\Pictures\Sample Pictures\Chrysanthemum.jpg');
+            a=imresize(a1,[255,255]);
+            subplot(4,4,1);
+            imshow(a);
+            title('Image 1');
+            b1=imread('C:\Users\Public\Pictures\Sample Pictures\Jellyfish.jpg');
+            b=imresize(b1,[255,255]);
+            subplot(4,4,2);
+            imshow(b);
+            title('Image 2');
+    option=input('Enter your Choice');
+    switch(option)
+        case 1
+            add=imadd(a,b);
+            subplot(4,4,3);
+            imshow(add);
+            title('Addition');
+        case 2
+            sub=imsubtract(a,b);
+            subplot(4,4,4);
+            imshow(sub);
+            title('Substraction');
+        case 3
+            mul=immultiply(a,b);
+            subplot(4,4,5);
+            imshow(mul);
+            title('Multiplication');
+        case 4
+            div=imdivide(a,b);
+            subplot(4,4,6);
+            imshow(div);
+            title('Division');
+        case 5
+            break;
+        otherwise
+            disp('Please give a correct Option');
+            break;
+    end
+end
+return
+Logical Operation	
+function operation
+close all
+clear all
+fprintf('\t Logical Operation\n');
+fprintf('\t 1.AND Operation\n');
+fprintf('\t 2.OR Operation\n');
+fprintf('\t 3.NOT Operation\n');
+fprintf('\t 4.XOR Operation\n');
+fprintf('\t 5.Exit\n');
+while(true)
+    option=input('Enter your Choice:');
+    switch(option)
+        case 1
+            a1=imread('C:\Users\Public\Pictures\Sample Pictures\Chrysanthemum.jpg');
+            a=imresize(a1,[255,255]);
+            subplot(3,3,1);
+            imshow(a);
+            title('Image 1');
+            b1=imread('C:\Users\Public\Pictures\Sample Pictures\Jellyfish.jpg');
+            b=imresize(b1,[255,255]);
+            subplot(3,3,2);
+            imshow(b);
+            title('Image 2');
+            c=bitand(a,b);
+            subplot(3,3,3);
+            imshow(c);
+            title('AND')
+        case 2
+            d=bitor(a,b);
+            subplot(3,3,4);
+            imshow(d);
+            title('OR');
+        case 3
+            e=bitcmp(a);
+            subplot(3,3,5);
+            imshow(e);
+            title('NOT');
+        case 4
+            f=bitxor(a,b);
+            subplot(3,3,6);
+            imshow(f);
+            title('XOR');
+        
+case 5
+            break;
+        otherwise
+            disp('Please give a correct Option');
+            break;
+    end
+end
+return
+
+geometric operation:
+function geometric
+close all
+clear all
+fprintf('\t Geometrical Operation\n');
+fprintf('\t 1.Read and Original Display\n');
+fprintf('\t 2.Rotate image\n');
+fprintf('\t 3.Crop image\n');
+fprintf('\t 4.Translate image\n');
+fprintf('\t 5.Exit\n');
+while(true)
+    option=input('Enter your Choice:');
+    switch(option)
+        case 1
+            i=imread('C:\Users\Public\Pictures\Sample Pictures\Chrysanthemum.jpg');
+            a=imresize(i,[255,255]);
+            subplot(3,3,1);
+            imshow(a);
+            title('Image');
+        case 2
+            b=imrotate(a,-10);
+            c=imrotate(a,10);
+            subplot(3,3,2);
+            imshow(b);
+            title('Rotation Image 1')
+            subplot(3,3,3);
+            imshow(c);
+            title('Rotation Image 2');
+        case 3
+            d=imcrop(i,[75,68,130,112]);
+            subplot(3,3,4);
+            imshow(d);
+            title('Crop Image');
+        case 4
+            tform=maketform('affine',[1 0 0;5 1 0;0 0 1]);
+            f=imtransform(i,tform);
+            subplot(3,3,5);
+            imshow(f);
+            title('Translation Image');
+        case 5
+            break;
+        otherwise;
+            disp('Please give a Correct Option');
+            break;
+    end
+end
+return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Image clipping:
+function crop
+fprintf('\t Crop Image\n');
+while(true)
+    option=input('Enter your Choice');
+    switch(option)
+        case 1
+            a1=imread('C:\Users\Public\Pictures\Sample Pictures\Koala.jpg');
+            a=imresize(a1,[255,255]);
+            subplot(2,2,1);
+            imshow(a);
+            title('Original Image');
+        case 2
+            b=imcrop(a,[75 68 130 112]);
+            subplot(2,2,2);
+            imshow(b);
+            title('Crop Image');
+        case 3
+            disp('Exit');
+            break;
+        otherwise;
+            disp('Please give a Correct Option');
+    end
+end
+return      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Image sampling and quantization:
+img=imread('C:\Users\Public\Pictures\Sample Pictures\Penguins.jpg');
+grayimg=rgb2gray(img);
+figure;
+subplot(1,3,1);
+imshow(grayimg);
+title('Original Image');
+downsampledimg=grayimg(1:2:end , 1:2:end);
+subplot(1,3,2);
+imshow(downsampledimg);
+title('Image After Sampling');
+levels = 4;
+quantizedimg=floor(double(downsampledimg)/(256/levels))*(256/levels);
+quantizedimg=uint8(quantizedimg);
+subplot(1,3,3);
+imshow(quantizedimg);
+title('Image after Sampling & Quantization');
+suptitle('Image Processing: Sampling and Qauntization');
+
+histogram:
+function hist
+fprintf('\t Histogramn\n');
+fprintf('\t Histogram Equalization\n');
+fprintf('\t Histogram Specification\n');
+while(true)
+    option=input('Enter the option:');
+    switch(option)
+        case 1
+            a=imread('C:\Users\Public\Pictures\Sample Pictures\Penguins.jpg');
+            b=rgb2gray(a);
+            subplot(4,4,1);
+            imshow(b);
+            title('Gray Image');
+            subplot(3,3,2);
+            imhist(b);
+            title('Histogram');
+        case 2
+            subplot(3,3,3);
+            histeq(b);
+            c=histeq(b);
+            title('Gray Scale');
+            subplot(3,3,4);
+            imhist(c);
+            title('Histogram Equalization');
+        case 3
+            subplot(3,3,5);
+            histeq(b,10:50);
+            d=histeq(b,100:500);
+            title('Gray image');
+            imhist(d);
+            title('Histogram Specification');
+        case 4
+            break;
+        otherwise;
+            disp('Please enter correct option');
+            break;
+    end
+end
+return
+
+image thresholding:
+a=imread('C:\Users\Public\Pictures\Sample Pictures\bharatanatyam.jpg');
+a=rgb2gray(a);
+[r,c]=size(a);
+t=input('Enter the Threshold');
+for i=1:r
+    for j=1:c
+        if a(i,j)<t
+            b(i,j)=0;
+        else
+            b(i,j)=255;
+        end
+    end
+end
+subplot(1,2,1);
+imshow(a);
+title('Original Image');
+subplot(1,2,2);
+imshow(b);
+title('Binary Image');
+xlabel(fprintf('threshold %g',t));
+
+
+
+
+
+
+
+Image compression:
+close all
+clear all
+clc
+inImage=imread('C:\Users\Public\Pictures\Sample Pictures\china.jpg');
+inImage=rgb2gray(inImage);
+imshow(inImage);
+inImageD=double(inImage);
+[U,S,V]=svd(inImageD);
+dispEr=[];
+numSvals=[];
+for N=1:50:300
+    c=S;
+    c(N+1:end,:)=0;
+    c(:,N+1:end)=0;
+    D=U*c*V';
+    figure;
+    buffer=sprintf('Image Output Using %d Singular Values',N)
+    imshow(uint8(D));
+    imwrite(D,'final.jpg');
+    title('buffer');
+    error=sum(sum((inImageD-D).^2));
+    dispEr=[dispEr;error];
+    numSvals=[numSvals;N];
+end
+figure;
+title('Error in Compression');
+plot(numSvals,dispEr);
+grid on
+xlabel('Number of Singular values used:');
+ylabel('Error between comprees and Original image');
+
+image color conversion:
+function colorcon
+close all
+clear all
+fprintf('\t 1.Image Conversion\n');
+fprintf('\t 2.rgb2ntsc\n');
+fprintf('\t 3.ntsc2rgb\n'); 
+fprintf('\t 4.rgb2gray\n');
+fprintf('\t 5.rgb2ycbcr\n');
+fprintf('\t 6.ycbcr2rgb\n');
+fprintf('\t 7.hsv2rgb\n');
+fprintf('\t 8.rgb2hsv\n');
+fprintf('\t 9.imcomplement \n');
+fprintf('\t 10.imcomplement to original\n');
+fprintf('\t 11.Exit\n');
+while(true)
+    option=input('Enter the choice:');
+    switch(option)
+        case 1
+            a1=imread('C:\Users\Public\Pictures\Sample Pictures\Desert.jpg');
+            a=imresize(a1,[255,255]);
+            subplot(4,4,1);
+            imshow(a);
+            title('Original Image');
+        case 2
+            b=rgb2ntsc(a);
+            subplot(4,4,2);
+            imshow(b);
+            title('rgb2ntsc');
+        case 3
+            c=ntsc2rgb(b);
+            subplot(4,4,3);
+            imshow(c);
+            title('ntsc2rgb');
+        case 4
+            j=rgb2gray(b);
+            subplot(4,4,4);
+            imshow(j);
+            title('rgb2gray');
+        case 5
+            d=rgb2ycbcr(b);
+            subplot(4,4,5);
+            imshow(d);
+            title('rgb2ycbcr');
+        case 6
+            e=ycbcr2rgb(d);
+            subplot(4,4,6);
+            imshow(e);
+            title('ycbcr2rgb');
+        case 7
+            f=rgb2hsv(e);
+            subplot(4,4,7);
+            imshow(f);
+            title('rgb2hsv');
+        case 8
+            g=hsv2rgb(f);
+            subplot(4,4,8);
+            imshow(g);
+            title('hsv2rgb');
+        case 9
+            h=imcomplement(a);
+            subplot(4,4,9);
+            imshow(h);
+            title('Image Complement');
+        case 10
+            i=imcomplement(h);
+            subplot(4,4,10);
+            imshow(i);
+            title('Original Image'); 
+        case 11
+            break;
+    end
+end
+return
+
+image color conversion: RCB,to GREY
+function conver
+close all
+fprintf('\t Conversion \n');
+fprintf('\t1.Gray Image \n');
+fprintf('\t2.Binary Image \n');
+fprintf('\t3.Exit\n');
+while(true)
+    option=input('Enter the choice :');
+    switch(option)
+        case 1
+            a1=imread('C:\Users\Public\Pictures\Sample Pictures\Beach view in Kumari.jpg');
+            a=imresize(a1,[255,255]);
+            subplot(4,4,1);
+            imshow(a);
+            title('Image 1');
+            f=rgb2gray(a);
+            subplot(4,4,2);
+            imshow(f);
+            title('Gray Image');
+        case 2
+            a1=imread('C:\Users\Public\Pictures\Sample Pictures\Beach view in Kumari.jpg');
+            a=imresize(a1,[255,255]);
+            subplot(4,4,1);
+            imshow(a);
+            title('Image 1');
+            x=rgb2gray(a);
+            subplot(4,4,2);
+            imshow(x);
+            title('Gray Image');
+            BW=im2bw(x);
+            subplot(4,4,3);
+            imshow(BW);
+            title('Binary Image');
+        case 3
+            break;
+        otherwise;
+            disp('Please give correct option.');
+            break;
+    end
+end
+return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+image segmentation:
+function segment
+close all
+clear all
+fprintf('\t Segmentation\n');
+fprintf('\t1.Gray Image\n');
+fprintf('\t2.Point\n');
+fprintf('\t3.Line\n');
+fprintf('\t4.Exit\n');
+while(true)
+    option=input('Enter your choice:');
+    switch(option)
+        case 1
+            a1=imread('C:\Users\Public\Pictures\Sample Pictures\chichen.jpg');
+            a=imresize(a1,[255,255]);
+            subplot(4,4,1);
+            imshow(a);
+            title('Original image');
+            f=rgb2gray(a);
+            subplot(4,4,2);
+            imshow(f);
+            title('Gray Image');
+        case 2
+            w=[-1 -1 -1;-1 6 -1;-1 -1 -1];
+            g=abs(imfilter(double(f),w));
+            t=max(g(1));
+            subplot(4,4,3);
+            imshow(g);
+            title('Point');
+        case 3
+            w1=[2 -1 -1;-1 2 -1;-1 -1 2];
+            g1=abs(imfilter(double(f),w1));
+            t1=max(g1(6));
+            g1=g1>=t1;
+            subplot(4,4,5);
+            imshow(g1);
+            title('Line image +45 degree');
+            w2=[-1 -1 -1;2 2 2;-1 -1 -1];
+            g2=abs(imfilter(double(f),w2));
+            t2=max(g2(3));
+            g2=g2>=t2;
+            subplot(4,4,7);
+            imshow(g2);
+            title('Horizontal Line Image');
+            w3=[-1 2 -1;-1 2 -1;-1 2 -1];
+            g3=abs(imfilter(double(f),w3));
+            t3=max(g3(6));
+            g3=g3>=t3;
+            subplot(4,4,9);
+            imshow(g3);
+            title('Vertical Line Image');
+            w4=[-1 -1 2;-1 2 -1;2 -1 -1];
+            g4=abs(imfilter(double(f),w4));
+            t4=max(g4(6));
+            g4=g4>=t4;
+            subplot(4,4,11);
+            imshow(g4);
+            title('Line Image -45 degree');
+        case 4
+            break;
+        otherwise;
+            disp('Please give correct option.');
+            break;
+    end
+end
+return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Edge detection:
+function detection
+fprintf('\t 1.Edge Detection Image \n');
+fprintf('\t 2.Gray Image\n');
+fprintf('\t 3.Sobel\n');
+fprintf('\t 4.Prewitt\n');
+fprintf('\t 5.Roberts\n');
+fprintf('\t 6.log\n');
+fprintf('\t 7.Zero-cross\n');
+fprintf('\t 8.Canny\n');
+fprintf('\t 9.Exit\n');
+while(true)
+    option=input('Enter your choice');
+    switch(option)
+        case 1
+            a1=imread('C:\Users\Public\Pictures\Sample Pictures\Beach view in Kumari.jpg');
+            a=imresize(a1,[255,255]);
+            subplot(4,4,1);
+            imshow(a);
+            title('Original Image');
+        case 2
+            b=rgb2gray(a);
+            subplot(4,4,2);
+            imshow(b);
+            title('Gray Image');
+        case 3
+            c=edge(b,'Sobel');
+            subplot(4,4,3);
+            imshow(c);
+            title('Sobel');
+        case 4
+            d=edge(b,'prewitt');
+            subplot(4,4,4);
+            imshow(d);
+            title('Prewitt');
+        case 5
+            e=edge(b,'roberts');
+            subplot(4,4,5);
+            imshow(e);
+            title('roberts');
+        case 6
+            f=edge(b,'log');
+            subplot(4,4,6);
+            imshow(f);
+            title('log');
+        case 7
+            g=edge(b,'Zerocross');
+            subplot(4,4,7);
+            imshow(g);
+            title('Zero-Cross');
+        case 8
+            n=edge(b,'canny');
+            subplot(4,4,8);
+            imshow(n);
+            title('canny');
+        case 9
+            disp('Exit');
+            break;
+        otherwise;
+            disp('Incorrect Option');
+    end
+end
+return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
